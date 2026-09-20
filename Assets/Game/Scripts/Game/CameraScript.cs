@@ -10,6 +10,14 @@ public class CameraScript : MonoBehaviour
     public Transform floor3;
     public Transform floor4;
 
+    [Header("Camera Movement Audio")]
+    [SerializeField] private AudioSource movementAudioSource;
+    [SerializeField] private AudioClip movementSfx;
+    [SerializeField] private AudioClip layerSwitchSfx;
+
+    private bool wasPanInputActive;
+    private bool wasZoomInputActive;
+
     void Update()
     {
         float vertical = Input.GetAxis("Horizontal");
@@ -26,18 +34,44 @@ public class CameraScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             transform.position = floor1.position;
+            PlayLayerSwitchSound();
         }
         else if (Input.GetKeyDown(KeyCode.G))
         {
             transform.position = floor2.position;
+            PlayLayerSwitchSound();
         }
         else if (Input.GetKeyDown(KeyCode.H))
         {
             transform.position = floor3.position;
+            PlayLayerSwitchSound();
         }
         else if (Input.GetKeyDown(KeyCode.J))
         {
             transform.position = floor4.position;
+            PlayLayerSwitchSound();
         }
+
+        UpdateMovementAudio(Mathf.Abs(horizontal) > 0.01f || Mathf.Abs(vertical) > 0.01f);
+    }
+
+    private void PlayLayerSwitchSound()
+    {
+        if (movementAudioSource != null && layerSwitchSfx != null)
+            movementAudioSource.PlayOneShot(layerSwitchSfx);
+    }
+
+    private void UpdateMovementAudio(bool panInputActive)
+    {
+        Vector2 scrollInput = Input.mouseScrollDelta;
+        bool zoomInputActive = Mathf.Abs(scrollInput.y) > 0.01f;
+        bool newPanAction = panInputActive && !wasPanInputActive;
+        bool newZoomAction = zoomInputActive && !wasZoomInputActive;
+
+        if ((newPanAction || newZoomAction) && movementAudioSource != null && movementSfx != null)
+            movementAudioSource.PlayOneShot(movementSfx);
+
+        wasPanInputActive = panInputActive;
+        wasZoomInputActive = zoomInputActive;
     }
 }
