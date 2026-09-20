@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Button text="Play" name="play" style="position: absolute; height: 200px; width: 200px; top: 78px; left: 51px; font-size: 50px;"/>
+    <ui:Button text="Leaderboards" name="leaderboards" style="position: absolute; height: 200px; width: 200px; top: 402px; left: 307px; font-size: 50px;"/>
+    <ui:Button text="Exit" name="exit" style="position: absolute; height: 200px; width: 200px; top: 739px; left: 52px; font-size: 50px;"/>
+    <ui:Button text="Manual" name="manual" style="position: absolute; height: 200px; width: 200px; top: 399px; left: 51px; font-size: 50px;"/>
+    <ui:Button text="Settings" name="settings" style="position: absolute; height: 200px; width: 200px; top: 400px; left: 562px; font-size: 50px;"/>
+</ui:UXML>

@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Label text="00000" name="resource" style="position: absolute; height: 117px; width: 319px; top: 30px; left: 23px; font-size: 100px;"/>
+    <ui:Button text="Macrophage" name="macrophage" style="height: 200px; width: 200px; position: absolute; top: 28px; left: 378px; font-size: 25px;"/>
+    <ui:Button text="Neutrophil&#10;" name="neutrophil" style="height: 200px; width: 200px; position: absolute; top: 29px; left: 615px; font-size: 25px;"/>
+    <ui:Button text="Basophil" name="basophil" style="height: 200px; width: 200px; position: absolute; top: 31px; left: 850px; font-size: 25px;"/>
+    <ui:Image name="container" style="position: absolute; height: 600px; width: 400px; top: 34px; left: 2123px; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(100, 100, 100);"/>
+    <ui:Image name="image" style="position: absolute; height: 200px; width: 200px; top: 74px; left: 2223px; -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgb(50, 50, 50);"/>
+    <ui:Label text="name&#10;" name="name" style="position: absolute; height: 75px; width: 255px; top: 273px; left: 2189px; font-size: 50px; -unity-text-align: upper-center;"/>
+    <ui:Label text="stat1" name="stat1" style="position: absolute; height: 75px; width: 255px; top: 371px; left: 2135px; font-size: 50px;"/>
+    <ui:Label text="stat2" name="stat2" style="position: absolute; height: 75px; width: 255px; top: 450px; left: 2132px; font-size: 50px;"/>
+    <ui:Label text="stat3" name="stat3" style="position: absolute; height: 75px; width: 255px; top: 533px; left: 2133px; font-size: 50px;"/>
+    <ui:ProgressBar value="0" title="" name="timer-bar" style="position: absolute; height: 220px; width: 1549px; top: 1332px; left: 468px; bottom: -120px; opacity: 1;"/>
+</ui:UXML>

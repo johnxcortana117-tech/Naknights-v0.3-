@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Button text="&#10;" name="button1" style="position: absolute; width: 100px; height: 100px; top: auto; left: 20px; bottom: 160px;">
+        <ui:Label text="Neutrophil" name="label1" style="position: absolute; height: 100px; width: 400px; font-size: 50px; top: auto; left: 160px; bottom: 0; -unity-text-align: middle-left;"/>
+    </ui:Button>
+    <ui:Button text="&#10;" name="button2" style="position: absolute; width: 100px; height: 100px; top: auto; left: 20px; bottom: 20px;">
+        <ui:Label text="Macrophage" name="label2" style="position: absolute; height: 100px; width: 400px; font-size: 50px; top: auto; left: 160px; -unity-text-align: middle-left; bottom: 0;"/>
+    </ui:Button>
+    <ui:Button text="&#10;" name="button3" style="position: absolute; width: 100px; height: 100px; top: auto; left: 640px; bottom: 160px;">
+        <ui:Label text="Activate Basophil" name="label3" style="position: absolute; height: 100px; width: 400px; font-size: 50px; top: auto; left: 160px; -unity-text-align: middle-left; bottom: 0;"/>
+    </ui:Button>
+    <ui:Button text="&#10;" name="button4" style="position: absolute; width: 100px; height: 100px; top: auto; left: 640px; bottom: 20px;">
+        <ui:Label text="Label" name="label4" style="position: absolute; height: 100px; width: 400px; font-size: 50px; top: auto; left: 160px; -unity-text-align: middle-left; bottom: 0;"/>
+    </ui:Button>
+    <ui:Label text="Label" name="day" style="position: absolute; width: 400px; height: 100px; font-size: 50px; top: 50px; left: auto; right: 50px; -unity-text-align: upper-right;"/>
+    <ui:Label text="Label" name="resource" style="position: absolute; width: 400px; height: 100px; font-size: 50px; top: 200px; left: auto; right: 50px; -unity-text-align: upper-right;"/>
+</ui:UXML>
