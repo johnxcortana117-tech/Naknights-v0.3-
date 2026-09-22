@@ -4647,7 +4647,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 138503837}
+      - m_Target: {fileID: 745068366}
         m_TargetAssemblyTypeName: 
         m_MethodName: LogInteraction
         m_Mode: 5
@@ -18889,6 +18889,7 @@ GameObject:
   - component: {fileID: 745068363}
   - component: {fileID: 745068364}
   - component: {fileID: 745068365}
+  - component: {fileID: 745068366}
   m_Layer: 0
   m_Name: TacticalOrdersContainer
   m_TagString: Untagged
@@ -19016,6 +19017,18 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &745068366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745068359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0565834c0fbe27a438ce3ca209ab01ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionLogger
 --- !u!1 &745569359
 GameObject:
   m_ObjectHideFlags: 0
@@ -22441,7 +22454,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 894626773}
+      - m_Target: {fileID: 745068366}
         m_TargetAssemblyTypeName: 
         m_MethodName: LogInteraction
         m_Mode: 5
@@ -22907,7 +22920,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 911858980}
+      - m_Target: {fileID: 745068366}
         m_TargetAssemblyTypeName: 
         m_MethodName: LogInteraction
         m_Mode: 5
@@ -46983,7 +46996,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1961894823}
+      - m_Target: {fileID: 745068366}
         m_TargetAssemblyTypeName: 
         m_MethodName: LogInteraction
         m_Mode: 5
@@ -47391,7 +47404,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1979159991}
+      - m_Target: {fileID: 745068366}
         m_TargetAssemblyTypeName: 
         m_MethodName: LogInteraction
         m_Mode: 5
