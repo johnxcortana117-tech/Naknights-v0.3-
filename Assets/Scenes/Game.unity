@@ -4537,6 +4537,7 @@ GameObject:
   - component: {fileID: 138503833}
   - component: {fileID: 138503835}
   - component: {fileID: 138503836}
+  - component: {fileID: 138503837}
   m_Layer: 0
   m_Name: Left Hand Order
   m_TagString: Untagged
@@ -4645,7 +4646,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 138503833}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 138503837}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: LogInteraction
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Left Hand
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &138503836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4666,6 +4679,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &138503837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138503831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0565834c0fbe27a438ce3ca209ab01ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionLogger
 --- !u!1 &150896222
 GameObject:
   m_ObjectHideFlags: 0
@@ -22182,6 +22207,7 @@ GameObject:
   - component: {fileID: 894626769}
   - component: {fileID: 894626771}
   - component: {fileID: 894626772}
+  - component: {fileID: 894626773}
   m_Layer: 0
   m_Name: Right Hand Order
   m_TagString: Untagged
@@ -22290,7 +22316,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 894626769}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 894626773}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: LogInteraction
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Right Hand
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &894626772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22311,6 +22349,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &894626773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894626767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0565834c0fbe27a438ce3ca209ab01ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionLogger
 --- !u!1 &899094755
 GameObject:
   m_ObjectHideFlags: 0
@@ -22623,6 +22673,7 @@ GameObject:
   - component: {fileID: 911858976}
   - component: {fileID: 911858978}
   - component: {fileID: 911858979}
+  - component: {fileID: 911858980}
   m_Layer: 0
   m_Name: Left Foot Order
   m_TagString: Untagged
@@ -22731,7 +22782,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 911858976}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 911858980}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: LogInteraction
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Left Foot
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &911858979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22752,6 +22815,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &911858980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911858974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0565834c0fbe27a438ce3ca209ab01ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionLogger
 --- !u!1 &913422349
 GameObject:
   m_ObjectHideFlags: 0
@@ -29633,6 +29708,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151406644}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1157688012
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1827114397}
+    m_Modifications:
+    - target: {fileID: 2743559087155333531, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_Name
+      value: NeutrophilVisual
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70723015
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7069834
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+--- !u!4 &1157688013 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3267577964610458401, guid: 0aab50bde1e888d4886dd7d07c9edf08, type: 3}
+  m_PrefabInstance: {fileID: 1157688012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1158532124
 GameObject:
   m_ObjectHideFlags: 0
@@ -46511,6 +46660,7 @@ GameObject:
   - component: {fileID: 1961894819}
   - component: {fileID: 1961894821}
   - component: {fileID: 1961894822}
+  - component: {fileID: 1961894823}
   m_Layer: 0
   m_Name: Head Order
   m_TagString: Untagged
@@ -46619,7 +46769,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1961894819}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1961894823}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: LogInteraction
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Head
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1961894822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46640,6 +46802,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1961894823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961894817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0565834c0fbe27a438ce3ca209ab01ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionLogger
 --- !u!1 &1968050279
 GameObject:
   m_ObjectHideFlags: 0
@@ -46894,6 +47068,7 @@ GameObject:
   - component: {fileID: 1979159987}
   - component: {fileID: 1979159989}
   - component: {fileID: 1979159990}
+  - component: {fileID: 1979159991}
   m_Layer: 0
   m_Name: Right Foot Order
   m_TagString: Untagged
@@ -47002,7 +47177,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1979159987}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1979159991}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: LogInteraction
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Right Foot
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1979159990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47023,6 +47210,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1979159991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979159985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0565834c0fbe27a438ce3ca209ab01ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionLogger
 --- !u!1 &1987239041
 GameObject:
   m_ObjectHideFlags: 0
@@ -50682,6 +50881,10 @@ PrefabInstance:
       propertyPath: near clip plane
       value: -300
       objectReference: {fileID: 0}
+    - target: {fileID: 5829909678943089893, guid: 61465ffed8038cf4bb1bfed51569b900, type: 3}
+      propertyPath: orthographic size
+      value: 2.0000002
+      objectReference: {fileID: 0}
     - target: {fileID: 8091333390438552526, guid: 61465ffed8038cf4bb1bfed51569b900, type: 3}
       propertyPath: floor1
       value: 
@@ -50856,8 +51059,13 @@ PrefabInstance:
       value: Neutrophil_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8801052748162221798, guid: d795bf8e8628cd54c9367f9c2b5dc69d, type: 3}
+    - {fileID: 36294012131400970, guid: d795bf8e8628cd54c9367f9c2b5dc69d, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 153634853438989267, guid: d795bf8e8628cd54c9367f9c2b5dc69d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1157688013}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d795bf8e8628cd54c9367f9c2b5dc69d, type: 3}
 --- !u!1001 &5281330825067477529
