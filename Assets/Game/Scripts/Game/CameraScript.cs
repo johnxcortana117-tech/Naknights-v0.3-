@@ -10,6 +10,9 @@ public class CameraScript : MonoBehaviour
     public Transform floor3;
     public Transform floor4;
 
+    [Header("Tactical Orders")]
+    [SerializeField] private CanvasGroup tacticalOrdersCanvasGroup;
+
     [Header("Camera Movement Audio")]
     [SerializeField] private AudioSource movementAudioSource;
     [SerializeField] private AudioClip movementSfx;
@@ -18,7 +21,12 @@ public class CameraScript : MonoBehaviour
     private bool wasPanInputActive;
     private bool wasZoomInputActive;
 
-    void Update()
+    private void Start()
+    {
+        SetTacticalOrdersVisible(false);
+    }
+
+    private void Update()
     {
         float vertical = Input.GetAxis("Horizontal");
         float horizontal = Input.GetAxis("Vertical");
@@ -34,25 +42,39 @@ public class CameraScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             transform.position = floor1.position;
+            SetTacticalOrdersVisible(false);
             PlayLayerSwitchSound();
         }
         else if (Input.GetKeyDown(KeyCode.G))
         {
             transform.position = floor2.position;
+            SetTacticalOrdersVisible(true);
             PlayLayerSwitchSound();
         }
         else if (Input.GetKeyDown(KeyCode.H))
         {
             transform.position = floor3.position;
+            SetTacticalOrdersVisible(false);
             PlayLayerSwitchSound();
         }
         else if (Input.GetKeyDown(KeyCode.J))
         {
             transform.position = floor4.position;
+            SetTacticalOrdersVisible(false);
             PlayLayerSwitchSound();
         }
 
         UpdateMovementAudio(Mathf.Abs(horizontal) > 0.01f || Mathf.Abs(vertical) > 0.01f);
+    }
+
+    private void SetTacticalOrdersVisible(bool isVisible)
+    {
+        if (tacticalOrdersCanvasGroup != null)
+        {
+            tacticalOrdersCanvasGroup.alpha = isVisible ? 1f : 0f;
+            tacticalOrdersCanvasGroup.interactable = isVisible;
+            tacticalOrdersCanvasGroup.blocksRaycasts = isVisible;
+        }
     }
 
     private void PlayLayerSwitchSound()

@@ -9,6 +9,7 @@ public class MacrophageScript : MonoBehaviour
     public float radius = 5f;
     public float damage = 1f;
     public int health = 300;
+    private bool isCirculatoryCell;
 
     /*private void OnTriggerEnter(Collider other)
     {
@@ -19,14 +20,26 @@ public class MacrophageScript : MonoBehaviour
         }
     }*/
 
-    void Start()
+    private void Start()
     {
+        isCirculatoryCell = GetComponent<CirculatoryCellRoute>() != null;
+
+        if (isCirculatoryCell)
+        {
+            return;
+        }
+
         InvokeRepeating(nameof(AttackBacteria), 1f, 1f);
         Destroy(gameObject, health);
     }
 
-    void Update()
+    private void Update()
     {
+        if (isCirculatoryCell)
+        {
+            return;
+        }
+
         if (target == null)
         {
             Track();

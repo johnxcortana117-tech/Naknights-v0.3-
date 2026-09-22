@@ -9,17 +9,29 @@ public class NeutrophilScript : MonoBehaviour
     public float radius = 5f;
     public float damage = 1f;
     public int health = 180;
+    private bool isCirculatoryCell;
 
-    void Start()
+    private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        isCirculatoryCell = GetComponent<CirculatoryCellRoute>() != null;
+
+        if (isCirculatoryCell)
+        {
+            return;
+        }
 
         InvokeRepeating(nameof(AttackBacteria), 1f, 1f);
         Destroy(gameObject, health);
     }
 
-    void Update()
+    private void Update()
     {
+        if (isCirculatoryCell)
+        {
+            return;
+        }
+
         if (target == null)
         {
             Track();
