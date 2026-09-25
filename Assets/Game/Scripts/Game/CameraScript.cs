@@ -10,8 +10,10 @@ public class CameraScript : MonoBehaviour
     public Transform floor3;
     public Transform floor4;
 
-    [Header("Tactical Orders")]
+    [Header("System Controls")]
     [SerializeField] private CanvasGroup tacticalOrdersCanvasGroup;
+    [SerializeField] private CanvasGroup digestiveOrdersCanvasGroup;
+    [SerializeField] private CanvasGroup respiratoryOrdersCanvasGroup;
 
     [Header("Camera Movement Audio")]
     [SerializeField] private AudioSource movementAudioSource;
@@ -24,6 +26,8 @@ public class CameraScript : MonoBehaviour
     private void Start()
     {
         SetTacticalOrdersVisible(false);
+        SetDigestiveOrdersVisible(false);
+        SetRespiratoryOrdersVisible(false);
     }
 
     private void Update()
@@ -33,48 +37,75 @@ public class CameraScript : MonoBehaviour
 
         Vector3 isoHorizontal = new Vector3(-1, 0, 1);
         Vector3 isoVertical = new Vector3(1, 0, 1);
-
         Vector3 movement = (isoHorizontal * horizontal) + (isoVertical * vertical);
 
-        float speed = 100f;
-        transform.position += movement * speed * Time.deltaTime;
+        const float cameraMoveSpeed = 100f;
+        transform.position += movement * cameraMoveSpeed * Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.F))
         {
             transform.position = floor1.position;
-            SetTacticalOrdersVisible(false);
+            HideAllSystemControls();
             PlayLayerSwitchSound();
         }
         else if (Input.GetKeyDown(KeyCode.G))
         {
             transform.position = floor2.position;
             SetTacticalOrdersVisible(true);
+            SetDigestiveOrdersVisible(false);
+            SetRespiratoryOrdersVisible(false);
             PlayLayerSwitchSound();
         }
         else if (Input.GetKeyDown(KeyCode.H))
         {
             transform.position = floor3.position;
             SetTacticalOrdersVisible(false);
+            SetDigestiveOrdersVisible(true);
+            SetRespiratoryOrdersVisible(false);
             PlayLayerSwitchSound();
         }
         else if (Input.GetKeyDown(KeyCode.J))
         {
             transform.position = floor4.position;
             SetTacticalOrdersVisible(false);
+            SetDigestiveOrdersVisible(false);
+            SetRespiratoryOrdersVisible(true);
             PlayLayerSwitchSound();
         }
 
         UpdateMovementAudio(Mathf.Abs(horizontal) > 0.01f || Mathf.Abs(vertical) > 0.01f);
     }
 
+    private void HideAllSystemControls()
+    {
+        SetTacticalOrdersVisible(false);
+        SetDigestiveOrdersVisible(false);
+        SetRespiratoryOrdersVisible(false);
+    }
+
     private void SetTacticalOrdersVisible(bool isVisible)
     {
-        if (tacticalOrdersCanvasGroup != null)
-        {
-            tacticalOrdersCanvasGroup.alpha = isVisible ? 1f : 0f;
-            tacticalOrdersCanvasGroup.interactable = isVisible;
-            tacticalOrdersCanvasGroup.blocksRaycasts = isVisible;
-        }
+        SetCanvasGroupVisible(tacticalOrdersCanvasGroup, isVisible);
+    }
+
+    private void SetDigestiveOrdersVisible(bool isVisible)
+    {
+        SetCanvasGroupVisible(digestiveOrdersCanvasGroup, isVisible);
+    }
+
+    private void SetRespiratoryOrdersVisible(bool isVisible)
+    {
+        SetCanvasGroupVisible(respiratoryOrdersCanvasGroup, isVisible);
+    }
+
+    private static void SetCanvasGroupVisible(CanvasGroup canvasGroup, bool isVisible)
+    {
+        if (canvasGroup == null)
+            return;
+
+        canvasGroup.alpha = isVisible ? 1f : 0f;
+        canvasGroup.interactable = isVisible;
+        canvasGroup.blocksRaycasts = isVisible;
     }
 
     private void PlayLayerSwitchSound()
