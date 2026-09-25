@@ -4894,6 +4894,137 @@ MonoBehaviour:
   material: {fileID: 0}
   tissueHP: 1000
   gradient: 0
+--- !u!1 &159395624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 159395625}
+  - component: {fileID: 159395626}
+  m_Layer: 0
+  m_Name: RandomEventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &159395625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159395624}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &159395626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159395624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e276df2e04e192b4ba6da2493c0cf6f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomEventSystem
+  dayCounter: {fileID: 53820468}
+  activeDifficulty: 1
+  difficultyPresets:
+  - difficulty: 0
+    hourlyTriggerChance: 0.12
+    minorSeverityWeight: 70
+    moderateSeverityWeight: 25
+    severeSeverityWeight: 5
+    eventPoolWeights:
+    - eventId: 0
+      weight: 5
+    - eventId: 1
+      weight: 10
+    - eventId: 2
+      weight: 5
+    - eventId: 3
+      weight: 35
+    - eventId: 4
+      weight: 10
+    - eventId: 5
+      weight: 10
+    - eventId: 6
+      weight: 5
+  - difficulty: 1
+    hourlyTriggerChance: 0.22
+    minorSeverityWeight: 50
+    moderateSeverityWeight: 40
+    severeSeverityWeight: 10
+    eventPoolWeights:
+    - eventId: 0
+      weight: 10
+    - eventId: 1
+      weight: 12
+    - eventId: 2
+      weight: 10
+    - eventId: 3
+      weight: 20
+    - eventId: 4
+      weight: 12
+    - eventId: 5
+      weight: 15
+    - eventId: 6
+      weight: 11
+  - difficulty: 2
+    hourlyTriggerChance: 0.32
+    minorSeverityWeight: 35
+    moderateSeverityWeight: 45
+    severeSeverityWeight: 20
+    eventPoolWeights:
+    - eventId: 0
+      weight: 15
+    - eventId: 1
+      weight: 15
+    - eventId: 2
+      weight: 15
+    - eventId: 3
+      weight: 10
+    - eventId: 4
+      weight: 10
+    - eventId: 5
+      weight: 15
+    - eventId: 6
+      weight: 20
+  - difficulty: 3
+    hourlyTriggerChance: 0.48
+    minorSeverityWeight: 20
+    moderateSeverityWeight: 45
+    severeSeverityWeight: 35
+    eventPoolWeights:
+    - eventId: 0
+      weight: 20
+    - eventId: 1
+      weight: 15
+    - eventId: 2
+      weight: 15
+    - eventId: 3
+      weight: 3
+    - eventId: 4
+      weight: 7
+    - eventId: 5
+      weight: 15
+    - eventId: 6
+      weight: 25
+  enableDebugKeyboardShortcuts: 1
+  forceEventKey: 290
+  cycleDifficultyKey: 291
+  logHourlyRolls: 0
 --- !u!1 &160062307
 GameObject:
   m_ObjectHideFlags: 0
@@ -51563,3 +51694,4 @@ SceneRoots:
   - {fileID: 1245250119}
   - {fileID: 1163054869}
   - {fileID: 1959921387}
+  - {fileID: 159395625}
