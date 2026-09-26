@@ -25,7 +25,8 @@ public enum RoutineActivity
     Exercising,
     EatingDinner,
     Relaxing,
-    Idle
+    Idle,
+    Playing
 }
 
 /// <summary>One scheduled routine transition expressed as an in-game hour and activity.</summary>
