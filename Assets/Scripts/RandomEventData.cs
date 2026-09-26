@@ -5,7 +5,10 @@ public enum RandomEventType
 {
     Respiratory,
     Digestive,
-    GeneralLifestyle
+    GeneralLifestyle,
+    Physical,
+    Psychological,
+    PsychologicalPhysical
 }
 
 /// <summary>Severity selected from the active difficulty preset.</summary>
@@ -25,16 +28,19 @@ public enum RandomEventDifficulty
     Hard
 }
 
-/// <summary>Stable identifiers for the prototype's sample event pool.</summary>
+/// <summary>Stable identifiers for the sample random event pool.</summary>
 public enum RandomEventId
 {
     AteExpiredFood,
     InhaledDustOrAllergen,
     SkippedMeal,
-    AdequateSleep,
     Overexertion,
     StressOrPoorHydration,
-    JunkFoodBinge
+    JunkFoodBinge,
+    ArgumentOrConflict,
+    ColdFromSickPerson,
+    SunOrFreshAir,
+    NickedOrScraped
 }
 
 /// <summary>Weighted reference to one event in a difficulty preset's event pool.</summary>
@@ -87,6 +93,7 @@ public class RandomEventData
     public readonly RandomEventType eventType;
     public readonly RandomEventSeverity severity;
     public readonly bool triggersQTE;
+    public readonly bool triggersEscalation;
     public readonly float healthImpact;
     public readonly RandomEventDifficulty difficulty;
     public readonly int day;
@@ -98,6 +105,7 @@ public class RandomEventData
         RandomEventType eventType,
         RandomEventSeverity severity,
         bool triggersQTE,
+        bool triggersEscalation,
         float healthImpact,
         RandomEventDifficulty difficulty,
         int day,
@@ -108,6 +116,7 @@ public class RandomEventData
         this.eventType = eventType;
         this.severity = severity;
         this.triggersQTE = triggersQTE;
+        this.triggersEscalation = triggersEscalation;
         this.healthImpact = healthImpact;
         this.difficulty = difficulty;
         this.day = day;

@@ -153,9 +153,12 @@ public class RandomEventSystem : MonoBehaviour
         RandomEventSeverity severity = RollSeverity(preset);
         RandomEventId eventId = RollEventId(preset);
         if (activeDifficulty == RandomEventDifficulty.Easy &&
-            (eventId == RandomEventId.AteExpiredFood || eventId == RandomEventId.JunkFoodBinge))
+            (eventId == RandomEventId.AteExpiredFood ||
+             eventId == RandomEventId.JunkFoodBinge ||
+             eventId == RandomEventId.ColdFromSickPerson ||
+             eventId == RandomEventId.NickedOrScraped))
         {
-            severity = ClampEasyFoodSeverity(severity);
+            severity = ClampEasyEventSeverity(severity);
         }
 
         RandomEventData eventData = CreateEventData(eventId, severity, day, hour);
@@ -213,7 +216,7 @@ public class RandomEventSystem : MonoBehaviour
         return preset.eventPoolWeights[preset.eventPoolWeights.Length - 1].eventId;
     }
 
-    private RandomEventSeverity ClampEasyFoodSeverity(RandomEventSeverity severity)
+    private RandomEventSeverity ClampEasyEventSeverity(RandomEventSeverity severity)
     {
         return severity == RandomEventSeverity.Severe
             ? RandomEventSeverity.Moderate
@@ -225,19 +228,25 @@ public class RandomEventSystem : MonoBehaviour
         switch (eventId)
         {
             case RandomEventId.AteExpiredFood:
-                return new RandomEventData("Ate expired/spoiled food", "Digestive discomfort detected; vomit QTE if unresolved.", RandomEventType.Digestive, severity, true, -8f, activeDifficulty, day, hour);
+                return new RandomEventData("Ate expired/spoiled food", "Digestive discomfort detected; vomit QTE if unresolved.", RandomEventType.Digestive, severity, true, false, -8f, activeDifficulty, day, hour);
             case RandomEventId.InhaledDustOrAllergen:
-                return new RandomEventData("Inhaled dust/allergen", "Respiratory irritation detected; cough QTE if unresolved.", RandomEventType.Respiratory, severity, true, -4f, activeDifficulty, day, hour);
+                return new RandomEventData("Inhaled dust/allergen", "Respiratory irritation detected; cough QTE if unresolved.", RandomEventType.Respiratory, severity, true, false, -4f, activeDifficulty, day, hour);
             case RandomEventId.SkippedMeal:
-                return new RandomEventData("Skipped a meal", "Energy intake was insufficient; minor health drain if unresolved.", RandomEventType.GeneralLifestyle, severity, false, -2f, activeDifficulty, day, hour);
-            case RandomEventId.AdequateSleep:
-                return new RandomEventData("Got adequate sleep", "Recovery conditions were favorable; minor health regeneration.", RandomEventType.GeneralLifestyle, severity, false, 3f, activeDifficulty, day, hour);
+                return new RandomEventData("Skipped a meal", "Energy intake was insufficient; minor health drain if unresolved.", RandomEventType.GeneralLifestyle, severity, false, false, -2f, activeDifficulty, day, hour);
             case RandomEventId.Overexertion:
-                return new RandomEventData("Overexertion/fatigue from exercise", "Physical exertion exceeded the current recovery baseline.", RandomEventType.GeneralLifestyle, severity, false, -3f, activeDifficulty, day, hour);
+                return new RandomEventData("Overexertion/fatigue from exercise", "Physical exertion exceeded the current recovery baseline.", RandomEventType.Physical, severity, false, false, -3f, activeDifficulty, day, hour);
             case RandomEventId.StressOrPoorHydration:
-                return new RandomEventData("Mild stress/poor hydration", "Stress or hydration deficit detected; follow-up event chance may rise.", RandomEventType.GeneralLifestyle, severity, false, -1f, activeDifficulty, day, hour);
+                return new RandomEventData("Mild stress/poor hydration", "Stress or hydration deficit detected; follow-up event chance may rise.", RandomEventType.Psychological, severity, false, false, -1f, activeDifficulty, day, hour);
             case RandomEventId.JunkFoodBinge:
-                return new RandomEventData("Junk food binge", "Digestive and lifestyle strain detected.", RandomEventType.Digestive, severity, false, -5f, activeDifficulty, day, hour);
+                return new RandomEventData("Junk food binge", "Digestive and lifestyle strain detected.", RandomEventType.Digestive, severity, false, false, -5f, activeDifficulty, day, hour);
+            case RandomEventId.ArgumentOrConflict:
+                return new RandomEventData("Got into an argument / stressful conflict", "Psychological stress from a conflict caused a minor-to-moderate health drain.", RandomEventType.Psychological, severity, false, false, -3f, activeDifficulty, day, hour);
+            case RandomEventId.ColdFromSickPerson:
+                return new RandomEventData("Caught a cold from a sick classmate/coworker", "A bacteria breach is suspected; light cough QTE if unresolved.", RandomEventType.Respiratory, severity, true, false, -4f, activeDifficulty, day, hour);
+            case RandomEventId.SunOrFreshAir:
+                return new RandomEventData("Sat in the sun / got fresh air", "Fresh air and sunlight provided a minor health benefit.", RandomEventType.PsychologicalPhysical, severity, false, false, 2f, activeDifficulty, day, hour);
+            case RandomEventId.NickedOrScraped:
+                return new RandomEventData("Nicked by a sharp object or tripped and scraped knees", "A direct physical breach needs wound-clean QTE resolution; unresolved infection may escalate later.", RandomEventType.Physical, severity, true, true, -6f, activeDifficulty, day, hour);
             default:
                 throw new ArgumentOutOfRangeException(nameof(eventId), eventId, "Unknown random event id.");
         }
@@ -273,7 +282,7 @@ public class RandomEventSystem : MonoBehaviour
             {
                 difficultyPresets.Add(CreateDefaultPreset(difficulty));
             }
-            else if (preset.eventPoolWeights == null || preset.eventPoolWeights.Length == 0)
+            else if (preset.eventPoolWeights == null || preset.eventPoolWeights.Length != 10)
             {
                 preset.eventPoolWeights = CreateDefaultEventPool(difficulty);
             }
@@ -300,27 +309,40 @@ public class RandomEventSystem : MonoBehaviour
         switch (difficulty)
         {
             case RandomEventDifficulty.Easy:
-                return CreatePool(5f, 10f, 5f, 35f, 10f, 10f, 5f);
+                return CreatePool(5f, 10f, 5f, 10f, 10f, 5f, 8f, 8f, 35f, 4f);
             case RandomEventDifficulty.Medium:
-                return CreatePool(15f, 15f, 15f, 10f, 10f, 15f, 20f);
+                return CreatePool(15f, 15f, 15f, 10f, 15f, 20f, 12f, 8f, 5f, 12f);
             case RandomEventDifficulty.Hard:
-                return CreatePool(20f, 15f, 15f, 3f, 7f, 15f, 25f);
+                return CreatePool(20f, 15f, 15f, 7f, 15f, 25f, 10f, 10f, 2f, 13f);
             default:
-                return CreatePool(10f, 12f, 10f, 20f, 12f, 15f, 11f);
+                return CreatePool(10f, 12f, 10f, 12f, 15f, 11f, 12f, 8f, 15f, 8f);
         }
     }
 
-    private RandomEventPoolWeight[] CreatePool(float expiredFood, float allergen, float skippedMeal, float sleep, float overexertion, float stress, float junkFood)
+    private RandomEventPoolWeight[] CreatePool(
+        float expiredFood,
+        float allergen,
+        float skippedMeal,
+        float overexertion,
+        float stress,
+        float junkFood,
+        float argument,
+        float cold,
+        float sunOrFreshAir,
+        float nickedOrScraped)
     {
         return new[]
         {
             new RandomEventPoolWeight(RandomEventId.AteExpiredFood, expiredFood),
             new RandomEventPoolWeight(RandomEventId.InhaledDustOrAllergen, allergen),
             new RandomEventPoolWeight(RandomEventId.SkippedMeal, skippedMeal),
-            new RandomEventPoolWeight(RandomEventId.AdequateSleep, sleep),
             new RandomEventPoolWeight(RandomEventId.Overexertion, overexertion),
             new RandomEventPoolWeight(RandomEventId.StressOrPoorHydration, stress),
-            new RandomEventPoolWeight(RandomEventId.JunkFoodBinge, junkFood)
+            new RandomEventPoolWeight(RandomEventId.JunkFoodBinge, junkFood),
+            new RandomEventPoolWeight(RandomEventId.ArgumentOrConflict, argument),
+            new RandomEventPoolWeight(RandomEventId.ColdFromSickPerson, cold),
+            new RandomEventPoolWeight(RandomEventId.SunOrFreshAir, sunOrFreshAir),
+            new RandomEventPoolWeight(RandomEventId.NickedOrScraped, nickedOrScraped)
         };
     }
 

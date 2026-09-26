@@ -4955,13 +4955,19 @@ MonoBehaviour:
     - eventId: 2
       weight: 5
     - eventId: 3
-      weight: 35
+      weight: 10
     - eventId: 4
       weight: 10
     - eventId: 5
-      weight: 10
-    - eventId: 6
       weight: 5
+    - eventId: 6
+      weight: 8
+    - eventId: 7
+      weight: 8
+    - eventId: 8
+      weight: 35
+    - eventId: 9
+      weight: 4
   - difficulty: 1
     hourlyTriggerChance: 0.22
     minorSeverityWeight: 50
@@ -4975,13 +4981,19 @@ MonoBehaviour:
     - eventId: 2
       weight: 10
     - eventId: 3
-      weight: 20
-    - eventId: 4
       weight: 12
-    - eventId: 5
+    - eventId: 4
       weight: 15
-    - eventId: 6
+    - eventId: 5
       weight: 11
+    - eventId: 6
+      weight: 12
+    - eventId: 7
+      weight: 8
+    - eventId: 8
+      weight: 15
+    - eventId: 9
+      weight: 8
   - difficulty: 2
     hourlyTriggerChance: 0.32
     minorSeverityWeight: 35
@@ -4997,11 +5009,17 @@ MonoBehaviour:
     - eventId: 3
       weight: 10
     - eventId: 4
-      weight: 10
-    - eventId: 5
       weight: 15
-    - eventId: 6
+    - eventId: 5
       weight: 20
+    - eventId: 6
+      weight: 12
+    - eventId: 7
+      weight: 8
+    - eventId: 8
+      weight: 5
+    - eventId: 9
+      weight: 12
   - difficulty: 3
     hourlyTriggerChance: 0.48
     minorSeverityWeight: 20
@@ -5015,13 +5033,19 @@ MonoBehaviour:
     - eventId: 2
       weight: 15
     - eventId: 3
-      weight: 3
-    - eventId: 4
       weight: 7
-    - eventId: 5
+    - eventId: 4
       weight: 15
-    - eventId: 6
+    - eventId: 5
       weight: 25
+    - eventId: 6
+      weight: 10
+    - eventId: 7
+      weight: 10
+    - eventId: 8
+      weight: 2
+    - eventId: 9
+      weight: 13
   enableDebugKeyboardShortcuts: 1
   forceEventKey: 290
   cycleDifficultyKey: 291
