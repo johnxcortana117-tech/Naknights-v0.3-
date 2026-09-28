@@ -60,6 +60,7 @@ public class DayCounterUI : MonoBehaviour
 
     public event Action<int> OnDayAdvanced;
     public event Action<int, int> OnTimeChanged; // hour, minute
+    public event Action<int, int> OnHourAdvanced; // day, hour
 
     private int currentDay;
     private int currentHour;
@@ -125,6 +126,8 @@ public class DayCounterUI : MonoBehaviour
                     currentHour = 0;
                     AdvanceDay();
                 }
+
+                OnHourAdvanced?.Invoke(currentDay, currentHour);
             }
         }
 
