@@ -28,9 +28,10 @@ public class MacrophageScript : MonoBehaviour
         {
             return;
         }
-
+/*
         InvokeRepeating(nameof(AttackBacteria), 1f, 1f);
         Destroy(gameObject, health);
+        */
     }
 
     private void Update()
@@ -39,7 +40,7 @@ public class MacrophageScript : MonoBehaviour
         {
             return;
         }
-
+/*
         if (target == null)
         {
             Track();
@@ -54,8 +55,9 @@ public class MacrophageScript : MonoBehaviour
         {
             agent.ResetPath();
         }
+        */
     }
-
+/*
     void Track()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Bacteria");
@@ -88,4 +90,5 @@ public class MacrophageScript : MonoBehaviour
             }
         }
     }
+    */
 }
